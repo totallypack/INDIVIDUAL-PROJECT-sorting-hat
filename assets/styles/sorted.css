@@ -3,8 +3,8 @@ body {
   background-color: black;
 }
 
-#btn-sort {
-  font-size: larger;
-  font-weight: bolder;
-  color: azure;
+.card {
+  background: none;
+  margin: 5px;
+  border: none;
 }
