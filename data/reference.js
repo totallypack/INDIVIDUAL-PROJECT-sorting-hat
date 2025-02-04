@@ -5,6 +5,7 @@ export const studentList = [
     house: "",
     phoenix: true,
     death: false,
+    img: "../assets/images/g.png"
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const studentList = [
     house: "",
     phoenix: true,
     death: false,
+    img: "../assets/images/g.png"
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const studentList = [
     house: "",
     phoenix: true,
     death: false,
+    img: "../assets/images/r.png"
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const studentList = [
     house: "",
     phoenix: true,
     death: false,
+    img: "../assets/images/g.png"
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const studentList = [
     house: "",
     phoenix: true,
     death: false,
+    img: "../assets/images/s.png"
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export const studentList = [
     house: "",
     phoenix: true,
     death: false,
+    img: "../assets/images/g.png"
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export const studentList = [
     house: "",
     phoenix: true,
     death: false,
+    img:"../assets/images/h.png"
   },
   {
     id: 8,
@@ -54,5 +61,6 @@ export const studentList = [
     house: "",
     phoenix: true,
     death: false,
+    img: "../assets/images/g.png"
   }
 ]

@@ -1,4 +1,4 @@
-export const renderToDom = (divId, html) => {
+export const renderToDom = (divId, content) => {
   const selectedDiv = document.querySelector(divId);
-  selectedDiv.innerHTML = html;
+  selectedDiv.innerHTML = content;
 }
