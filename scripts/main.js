@@ -1,9 +1,19 @@
 import { cards } from "../components/card.js";
 import { formHTML } from "../components/form.js";
 import { studentList } from "../data/reference.js";
+import { houseImg } from "../components/houseimgs.js";
 import { renderToDom } from "../utilities/renderToDom.js";
+import { hideBtn, showBtn } from "../components/hideshow.js";
 
 const renderCards = (array) => {
+  if (array.length > 0) {
+    const displayType = array[0].death ? 'Death Eaters' : array[0].house;
+    const header = `<h1 class="text-center mb-4">${displayType}</h1>`;
+    renderToDom("#header", header);
+  } else {
+    renderToDom("#header", '');
+  }
+  
   let content = "";
   array.forEach((object) => {
     content += cards(object);
@@ -51,13 +61,19 @@ const deleteStudent = (event) => {
     const id = parseInt(event.target.dataset.studentId);
     const index = studentList.findIndex((object) => object.id === id);
     if (index !== -1) {
-    const student = studentList[index];
-    student.isExpelled = true;
-    student.death = true;
-  } else {
-    student.death = false;
-  }
-      renderCards(studentList.death);
+      const student = studentList[index];
+      student.death = !student.death;
+
+      if (student.death) {
+        const deathEaters = studentList.filter(object => object.death);
+        renderCards(deathEaters);
+      } else {
+        const houseMembers = studentList.filter(object => 
+          object.house.toLowerCase() === student.house.toLowerCase()
+        );
+        renderCards(houseMembers)
+      }
+    }
   }
 };
 
@@ -71,6 +87,9 @@ const toggleForm = () => {
   startButton.style.display = 'none';
   
   document.querySelector('#infoForm').addEventListener('submit', createStudent);
+  document.querySelector('#intro')
+
+  renderToDom('#intro', '')
 };
 
 // FORM HANDLER
@@ -79,27 +98,11 @@ const createStudent = (e) => {
   const name = document.querySelector('#studentName').value;
   const title = document.querySelector('#studentTitle').value;
   
-  // RANDOM HOUSE
+  // // RANDOM HOUSE
   const houses = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
   const randomHouse = houses[Math.floor(Math.random() * houses.length)];
 
-  // ASSIGN IMAGES TO HOUSES
-  const houseImg = (house) => {
-    if (house.toLowerCase() === "gryffindor") {
-      return "./assets/images/g.png";
-    }
-    if (house.toLowerCase() === "hufflepuff") {
-      return "./assets/images/h.png";
-    }
-    if (house.toLowerCase() === "ravenclaw") {
-      return "./assets/images/r.png";
-    }
-    if (house.toLowerCase() === "slytherin") {
-      return "./assets/images/s.png";
-    }
-  };
-
-  // CREATE NEW STUDENT OBJECT
+  // // CREATE NEW STUDENT OBJECT
   const newStudent = {
     id: studentList.length + 1,
     name: name,
@@ -114,15 +117,7 @@ const createStudent = (e) => {
   document.querySelector('#infoForm').reset();
   renderToDom('#cards', '');
   
-  // HIDE ALL ELEMENTS
-  const elementsToHide = ['#form', '#start', '#btnRow', '#armyRow'];
-  elementsToHide.forEach(element => {
-    const el = document.querySelector(element);
-    if (el) {
-      el.style.visibility = 'hidden'
-  };
-});
-  
+  // // REVEAL HOUSE
   const reveal = `
     <div id="houseReveal" class="text-center">
       <h2 class="${randomHouse.toLowerCase()}-text">Welcome to ${randomHouse}!</h2>
@@ -137,23 +132,18 @@ const createStudent = (e) => {
     );
     renderCards(houses);
     document.querySelector('#houseReveal').remove();
-    
-    // SHOW ELEMENTS AGAIN
-    elementsToHide.forEach(element => {
-      const el = document.querySelector(element);
-      if (el) {
-        el.style.visibility = 'visible';
-      }
-    });
+    showBtn()
   });
 };
 
 // START APP
 const startApp = () => {
+  hideBtn()
+  document.querySelector('#form').style.display = 'none';
+  document.querySelector('#armyRow').addEventListener('click', armyFilter);
   document.querySelector('#btnRow').addEventListener('click', buttonFilter);
   document.querySelector('#cards').addEventListener('click', deleteStudent);
-  document.querySelector('#armyRow').addEventListener('click', armyFilter);
   document.querySelector('#form-toggle-btn').addEventListener('click', toggleForm);
-  document.querySelector('#form').style.display = 'none';
 }
+
 startApp();

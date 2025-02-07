@@ -6,6 +6,18 @@
   height: 500px;
 }
 
+#intro {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-size: x-large;
+  font-weight: 800;
+  font-style: normal;
+  text-shadow: 2px 2px 8px #e5e9ee;
+  color: #e5e9ee;
+  margin-top: 100px;
+  text-align: center;
+}
+
 .card {
   background: none;
   margin: 5px;
@@ -24,9 +36,135 @@
   float: end;
 }
 
+.dropdown {
+  color: azure;
+  background-color: rgb(63, 63, 63);
+  opacity: 60%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dropdown:hover {
+  background-color: black;
+}
+
+#houseReveal {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-size: x-large;
+  font-weight: 800;
+  font-style: normal;
+  text-shadow: 2px 2px 8px #e5e9ee;
+  color: #e5e9ee;
+  margin: 20px 0;
+}
+
+.delete-btn {
+  border: none;
+  background: none;
+  opacity: 70%;
+  color: rgb(155, 41, 41);
+  font-weight: 900;
+  text-shadow: 1px 4px 4px white;
+  margin-top: 40%;
+}
+
+#header {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-size: x-large;
+  font-weight: 800;
+  font-style: normal;
+  text-shadow: 2px 2px 8px #e5e9ee;
+  color: #e5e9ee;
+  margin: 20px 0;
+  text-transform: capitalize;
+}
+
+#start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+.reveal-img {
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.reveal-img:hover {
+  transform: scale(1.1);
+}
+
+/* FORM */
+#form {
+  display: none;
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 20px;
+}
+
+#form.show {
+  display: block;
+}
+
 #infoForm {
   display: flex;
   flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #e5e9ee;
+}
+
+.form-floating .form-control {
+  background-color: rgba(229, 233, 238, 0.1);
+  border: 1px solid rgba(229, 233, 238, 0.3);
+  color: #e5e9ee;
+  font-family: "Roboto Slab", serif;
+}
+
+.form-floating label {
+  color: #e5e9ee;
+  font-family: "Roboto Slab", serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.form-control:focus {
+  background-color: rgba(229, 233, 238, 0.2);
+  border-color: #e5e9ee;
+  box-shadow: 0 0 8px rgba(229, 233, 238, 0.5);
+}
+
+#form-submit {
+  color: #e5e9ee;
+  background-color: rgb(63, 63, 63);
+  opacity: 0.8;
+  border-radius: 5px;
+  padding: 10px 30px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#form-submit:hover {
+  background-color: black;
+  opacity: 0.9;
+  box-shadow: 0 0 10px #e5e9ee;
+  transform: scale(1.02);
+}
+
+.form-control::placeholder {
+  color: rgba(229, 233, 238, 0.5);
 }
 
 .info {
@@ -45,44 +183,6 @@
   text-shadow: 0 8px 8px rgba(0,0,0,0.1);
 }
 
-.dropdown {
-  border-radius: 3px;
-  background-color: rgb(190, 190, 190);
-  border: 1px black solid;
-  padding: 5px 20px;
-}
-
-#houseReveal {
-  color: #efefef;
-}
-
-.delete-btn {
-  border: none;
-  background: none;
-  opacity: 70%;
-  color: rgb(155, 41, 41);
-  font-weight: 900;
-  text-shadow: 1px 4px 4px white;
-  margin-top: 40%;
-}
-
-#start {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.reveal-img {
-  max-width: 300px;
-  transition: transform 0.3s ease;
-}
-
-.reveal-img:hover {
-  transform: scale(1.1);
-}
-
 /* FILTER BUTTONS */
 #btnRow {
   font-family: "Roboto Slab", serif;
@@ -92,35 +192,75 @@
 #gryffindor {
   margin: 5px;
   background-color: rgb(202, 100, 100);
+  box-shadow: 2px 2px 5px #e5e9ee;
+  opacity: 70%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 #ravenclaw {
   margin: 5px;
   background-color: rgb(132, 132, 224);
+  box-shadow: 2px 2px 5px #e5e9ee;
+  opacity: 70%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 #hufflepuff {
   margin: 5px;
   background-color: rgb(192, 192, 104);
+  box-shadow: 2px 2px 5px #e5e9ee;
+  opacity: 70%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 #slytherin {
   margin: 5px;
   background-color: #559763;
+  box-shadow: 2px 2px 5px #e5e9ee;
+  opacity: 70%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 #all {
   margin: 5px;
   background-color: #ced4da;
+  box-shadow: 2px 2px 5px #e5e9ee;
+  opacity: 70%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #gryffindor:hover {
-  background-color: rgb(164, 110, 110);
+  background-color: rgb(175, 62, 62);
 }
 #ravenclaw:hover {
-  background-color: rgb(114, 114, 167);
+  background-color: rgb(66, 66, 162);
 }
 #hufflepuff:hover {
-  background-color: rgb(173, 173, 134);
+  background-color: rgb(142, 142, 59);
 }
 #slytherin:hover {
-  background-color: #75977c;
+  background-color: #3b8249;
 }
 #all:hover {
   background-color: #efefef;
@@ -134,27 +274,32 @@
 #phoenix {
   margin: 5px;
   background-color: rgb(155, 247, 247);
+  box-shadow: 2px 2px 5px #e5e9ee;
+  opacity: 70%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 #death {
   margin: 5px;
-  background-color: rgb(85, 85, 85);
+  background-color: rgb(22, 20, 20);
+  box-shadow: 2px 2px 5px #e5e9ee;
+  opacity: 70%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: antiquewhite;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #phoenix:hover {
-  background-color: rgb(219, 244, 244);
+  background-color: rgb(90, 250, 250);
 }
 #death:hover {
-  background-color: rgb(104, 100, 100);
-}
-
-/* FORM */
-#form {
-  display: none;
-  margin: 20px auto;
-  max-width: 400px;
-  padding: 20px;
-}
-
-#form.show {
-  display: block;
+  background-color: rgb(15, 14, 14);
 }
