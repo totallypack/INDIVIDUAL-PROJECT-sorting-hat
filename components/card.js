@@ -5,6 +5,9 @@ export const cards = (object) => {
     <div class="card-img-overlay">
       <h5 class="card-title">${object.title}</h5>
       <p class="card-text">${object.name}</p>
+      <div>
+        <button class="delete-btn" data-student-id="${object.id}">Expel</button>
+      </div>
     </div>
   </div>
   `
